@@ -9,6 +9,9 @@
   --caption-bg: rgba(47, 48, 58, 0.8);
   --our-team-bg: #f5f4fa;
   --border-logo-color: #afb1b8;
+  --customers-logo-color: #afb1b8;
+  --social-icon-color: #afb1b8;
+  --social-icon-accent: #ffffff;
 
   --footer-bg: #2f303a;
   --footer-contacts-color: rgba(255, 255, 255, 0.6);
@@ -130,7 +133,26 @@ address {
 }
 
 .address-icon {
+  width: 30px;
+  height: 30px;
   padding-right: 10px;
+
+  fill: var(--contacts-color);
+}
+
+.nav .item .current::after {
+  content: '';
+  width: auto;
+  height: 4px;
+  border-radius: 2px;
+  display: block;
+  margin-top: 28px;
+
+  background-color: var(--accent-color);
+}
+
+.link.current {
+  padding-bottom: 0px;
 }
 
 .address-item:not(:last-child) {
@@ -141,6 +163,7 @@ address {
   padding-top: 32px;
   padding-bottom: 32px;
   display: flex;
+  align-items: center;
 }
 
 .link,
@@ -161,6 +184,11 @@ address {
   color: var(--accent-color);
 }
 
+.contacts:hover .address-icon,
+.contacts:focus .address-icon {
+  fill: var(--accent-color);
+}
+
 .contacts {
   color: var(--contacts-color);
 }
@@ -174,7 +202,10 @@ address {
   flex-direction: column;
   justify-content: center;
 
-  background-color: var(--hero-bg);
+  background-image: linear-gradient(var(--hero-bg), var(--hero-bg)),
+    url(../images/background/header.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .hero-title {
@@ -191,6 +222,7 @@ address {
 }
 
 .btn {
+  cursor: pointer;
   padding: 10px 32px;
   border-radius: 4px;
   min-width: 200px;
@@ -237,7 +269,7 @@ address {
 .feature .item:not(:last-child),
 .what-we-do .item:not(:last-child),
 .our-team .item-member:not(:last-child),
-.customers .logo-icon:not(:last-child) {
+.customers .item:not(:last-child) {
   margin-right: 30px;
 }
 
@@ -329,8 +361,28 @@ address {
   margin-right: 10px;
 }
 
-.network-icon {
-  padding: 12px 12px;
+.networks > .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.our-team .network-icon {
+  fill: var(--social-icon-color);
+}
+
+.networks > .item:hover .network-icon,
+.networks > .item:focus .network-icon {
+  fill: var(--social-icon-accent);
+}
+
+.networks > .item:hover,
+.networks > .item:focus {
+  background-color: var(--accent-color);
 }
 
 .our-team {
@@ -374,12 +426,13 @@ address {
   line-height: 1.88;
 }
 
-.network-icon:hover {
+.network-icon:hover,
+.network-icon:focus {
   background-color: var(--accent-color);
 }
 
 /* ANCHOR Постоянные клиенты */
-.customers .logo-icon {
+.customers .item {
   width: 170px;
   height: 90px;
   display: flex;
@@ -388,6 +441,19 @@ address {
 
   border: 1px solid var(--border-logo-color);
   border-radius: 4px;
+}
+
+.customers .item:hover {
+  cursor: pointer;
+  border-color: var(--accent-color);
+}
+
+.customers .logo-icon {
+  fill: var(--customers-logo-color);
+}
+
+.customers .item:hover .logo-icon {
+  fill: var(--accent-color);
 }
 
 /* ANCHOR Футер */
@@ -447,6 +513,10 @@ address {
   margin-right: 10px;
 }
 
+.btn .icon-send {
+  fill: var(--btn-text-color);
+}
+
 .page-footer .form {
   display: flex;
 }
@@ -502,6 +572,23 @@ footer .phone {
   background-color: var(--footer-bg);
 }
 
+.page-footer .networks > .item {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.our-team .network-icon {
+  fill: var(--social-icon-color);
+}
+
+.page-footer .network-icon {
+  fill: var(--social-icon-accent);
+}
+
+.networks > .item:hover,
+.networks > .item:focus {
+  background-color: var(--accent-color);
+}
+
 /* ANCHOR Portfolio page */
 .portfolio {
   padding: 94px 0px;
@@ -521,6 +608,7 @@ footer .phone {
 }
 
 .filter-btn {
+  cursor: pointer;
   display: inline-block;
   padding: 6px 22px;
   border: 1px solid transparent;
@@ -542,8 +630,12 @@ footer .phone {
 .filter-btn.current {
   color: var(--btn-text-color);
   background-color: var(--accent-color);
+
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 3px 1px rgba(0, 0, 0, 0.1);
 }
 
+/* ANCHOR Все */
 .all-container {
   width: 1200px;
   padding-left: 15px;
@@ -566,6 +658,12 @@ footer .phone {
 
 .list-all .item:nth-last-child(n + 4) {
   margin-bottom: 30px;
+}
+
+.list-all .item:hover {
+  cursor: pointer;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 
 .description-container {
